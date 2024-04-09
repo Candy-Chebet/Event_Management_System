@@ -1,0 +1,11 @@
+controllers
+    event.controller,js
+Middlewares
+    index.js
+models
+    event.model.js
+services
+    event.service.js
+    index.js
+db.js
+index.js
