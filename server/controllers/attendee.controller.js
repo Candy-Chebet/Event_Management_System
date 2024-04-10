@@ -28,7 +28,7 @@ router.get('/:id', validateDbId, (req, res, next) => {
 router.post('/', (req, res, next)=> {
     const newRecord = {
         attendeeName: req.body.attendeeName,
-        eventName: req.body.location,
+        eventName: req.body.eventName,
         date: req.body.date,
         
     }

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const dbUri = //mongodb link;
+const dbUri = //connect to mongoDb
 
 mongoose.connect(dbUri);
 
