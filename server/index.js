@@ -8,6 +8,7 @@ const axios = require('axios'); // For making HTTP requests
 const connectDb = require('./db.js');
 const eventRoutes = require('./controllers/event.controller');
 const attendeeRoutes = require('./controllers/attendee.controller');
+const venueRoutes = require('./controllers/venue.controller');
 const { errorHandler } = require('./middlewares/');
 
 // Middleware
@@ -19,7 +20,8 @@ app.get('/api/weather/:city', async (req, res) => {
     try {
         const city = req.params.city;
         // Make a request to the external weather API
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={{weatherAPIKey}}`);
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={{OpenWeatherAPIKey}}`);
+
         const weatherData = response.data;
         // Send the weather data back to the client
         res.json(weatherData);
@@ -33,6 +35,7 @@ app.get('/api/weather/:city', async (req, res) => {
 // Routes
 app.use('/api/events', eventRoutes);
 app.use('/api/attendees', attendeeRoutes);
+app.use('/api/venues', venueRoutes);
 app.use(errorHandler);
 
 // Start the server

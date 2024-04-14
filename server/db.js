@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
-const dbUri = //connect to mongoDb
-
+const dbUri = //mongoAtlas Link
 mongoose.connect(dbUri);
 
 module.exports = () => {

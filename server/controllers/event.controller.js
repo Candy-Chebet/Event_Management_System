@@ -39,23 +39,23 @@ router.post('/', (req, res, next)=> {
         .catch(err => next(err))  
 })      
 
-router.put('/:id', validateDbId, (req, res) => {
+router.put('/:id', validateDbId, (req, res, next) => {
     const updatedEvent = {
         eventName: req.body.eventName,
         location: req.body.location,
         ticket: req.body.ticket,
         date: req.body.date,
-        time:req.body.time,
-        
-    }
+        time: req.body.time,
+    };
     eventCrud.update(req.params.id, updatedEvent)
-        .then(data=>{
-            if(data) res.send(data)
-            else raiseRecord404Error(req, res)       
+        .then(data => {
+            if (data) res.send(data);
+            else raiseRecord404Error(req, res);
         })
-        .catch(err => next(err))
- })
-router.delete('/:id', validateDbId, (req, res) => {
+        .catch(err => next(err));
+});
+
+router.delete('/:id', validateDbId, (req, res, next) => {
     eventCrud.delete(req.params.id)
         .then(data=>{
             if(data) res.send(data)
